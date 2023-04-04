@@ -29,7 +29,6 @@ function PersonnelList() {
         <div>
             <h1>Members</h1>
             <Link to='/personnels/create'>Add Personnel</Link>
-            <Link to='/personnels/edit'>Edit Personnel</Link>
             <ul>
                 {personnels.map(personnel => (
                     <li key={personnel.id}>{personnel.name}</li>

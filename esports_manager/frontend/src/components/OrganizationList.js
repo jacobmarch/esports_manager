@@ -29,7 +29,6 @@ function OrganizationList() {
       <div>
         <h1>Organizations</h1>
         <Link to='/organizations/create'>Create Organization</Link>
-        <Link to='/organizations/edit'>Edit Organization</Link>
         <ul>
           {organizations.map(organization => (
             <li key={organization.id}>{organization.name}</li>

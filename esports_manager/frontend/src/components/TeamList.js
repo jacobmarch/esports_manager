@@ -29,7 +29,6 @@ function TeamList() {
         <div>
             <h1>Teams</h1>
             <Link to='/teams/create'>Add Team</Link>
-            <Link to='/teams/edit'>Edit Team</Link>
             <ul>
                 {teams.map(team => (
                     <li key={team.id}>{team.name}</li>

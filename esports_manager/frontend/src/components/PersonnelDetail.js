@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function PersonnelDetail() {
     const { id } = useParams();
@@ -36,6 +37,7 @@ function PersonnelDetail() {
                     <li key={team.id}>{team.name}</li>
                 ))}
             </ul>
+            <Link to='/personnels/${id}/edit'>Edit Personnel</Link>
         </div>
 
     )

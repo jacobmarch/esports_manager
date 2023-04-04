@@ -39,6 +39,7 @@ function OrganizationDetail() {
                     <li key={team.id}>{team.name}</li>
                 ))}
             </ul>
+            <Link to='/organizations/${id}/edit'>Edit Organization</Link>
         </div>
     )
 };
