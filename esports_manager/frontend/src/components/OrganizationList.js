@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function OrganizationList() {
@@ -27,6 +28,8 @@ function OrganizationList() {
     return (
       <div>
         <h1>Organizations</h1>
+        <Link to='/organizations/create'>Create Organization</Link>
+        <Link to='/organizations/edit'>Edit Organization</Link>
         <ul>
           {organizations.map(organization => (
             <li key={organization.id}>{organization.name}</li>

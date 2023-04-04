@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function PersonnelList() {
@@ -26,7 +27,9 @@ function PersonnelList() {
 
     return (
         <div>
-            <h1>Personnels</h1>
+            <h1>Members</h1>
+            <Link to='/personnels/create'>Add Personnel</Link>
+            <Link to='/personnels/edit'>Edit Personnel</Link>
             <ul>
                 {personnels.map(personnel => (
                     <li key={personnel.id}>{personnel.name}</li>

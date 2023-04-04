@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function TeamList() {
@@ -27,6 +28,8 @@ function TeamList() {
     return (
         <div>
             <h1>Teams</h1>
+            <Link to='/teams/create'>Add Team</Link>
+            <Link to='/teams/edit'>Edit Team</Link>
             <ul>
                 {teams.map(team => (
                     <li key={team.id}>{team.name}</li>
