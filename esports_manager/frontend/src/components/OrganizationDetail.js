@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import axiosInstance from "../axiosInstance";
 
 function OrganizationDetail() {
     const { id } = useParams();
@@ -9,7 +11,7 @@ function OrganizationDetail() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axiosInstance.get(`api/organizations/${id}`)
+        axiosInstance.get(`/organizations/${id}`)
             .then(response => {
                 setOrganization(response.data);
                 setLoading(false);
@@ -18,7 +20,6 @@ function OrganizationDetail() {
                 setError(error);
                 setLoading(false);
             });
-        fetchData();
     }, [id]);
 
     if (loading) {

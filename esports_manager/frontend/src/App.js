@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import OrganizationList from './components/OrganizationList';
 import OrganizationDetail from './components/OrganizationDetail';
 import TeamList from './components/TeamList';
@@ -17,24 +17,24 @@ import PersonnelEdit from './components/PersonnelEdit';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Switch>
-          <Route exact path="/" component={OrganizationList} />
-          <Route path="/organizations/:id" component={OrganizationDetail} />
-          <Route path="/teams/:id" component={TeamList} />
-          <Route path="/team/:id" component={TeamDetail} />
-          <Route path="/personnel/:id" component={PersonnelList} />
-          <Route path="/person/:id" component={PersonnelDetail} />
-          <Route path="/organizations/create" component={OrganizationEdit} />
-          <Route path="/organizations/:id/edit" component={OrganizationEdit} />
-          <Route path="/teams/create" component={TeamEdit} />
-          <Route path="/teams/:id/edit" component={TeamEdit} />
-          <Route path="/personnel/create" component={PersonnelEdit} />
-          <Route path="/personnel/:id/edit" component={PersonnelEdit} />
-        </Switch>
-      </div>
-    </Router>
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<OrganizationList />} />
+          <Route path="/organizations/:id" element={<OrganizationDetail />} />
+          <Route path="/teams/:id" element={<TeamList />} />
+          <Route path="/team/:id" element={<TeamDetail />} />
+          <Route path="/personnel/:id" element={<PersonnelList />} />
+          <Route path="/person/:id" element={<PersonnelDetail />} />
+          <Route path="/organizations/create" element={<OrganizationEdit />} />
+          <Route path="/organizations/:id/edit" element={<OrganizationEdit />} />
+          <Route path="/teams/create" element={<TeamEdit />} />
+          <Route path="/teams/:id/edit" element={<TeamEdit />} />
+          <Route path="/personnel/create" element={<PersonnelEdit />} />
+          <Route path="/personnel/:id/edit" element={<PersonnelEdit />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

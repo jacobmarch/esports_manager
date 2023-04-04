@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axiosInstance from "../axiosInstance";
 
 function TeamEdit() {
     const { id } = useParams();
-    const history = useHistory();
+    const history = useNavigate();
     const [team, setTeam] = useState({ name: '', description: '' });
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -13,7 +13,7 @@ function TeamEdit() {
         if (id) {
             const fetchData = async () => {
                 try {
-                    const response = await axiosInstance.get(`/api/teams/${id}/`);
+                    const response = await axiosInstance.get(`/teams/${id}/`);
                     setTeam(response.data);
                     setLoading(false);
                 } catch (error) {

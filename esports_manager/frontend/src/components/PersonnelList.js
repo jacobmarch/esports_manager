@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import axiosInstance from '../axiosInstance';
 
 function PersonnelList() {
     const [personnels, setPersonnels] = useState([]);
@@ -8,7 +9,7 @@ function PersonnelList() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axiosInstance.get('api/personnels')
+        axiosInstance.get('/personnels')
             .then(response => {
                 setPersonnels(response.data);
                 setLoading(false);

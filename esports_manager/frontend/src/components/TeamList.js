@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import axiosInstance from '../axiosInstance';
 
 function TeamList() {
     const [teams, setTeams] = useState([]);
@@ -8,7 +9,7 @@ function TeamList() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axiosInstance.get('api/teams')
+        axiosInstance.get('/teams')
             .then(response => {
                 setTeams(response.data);
                 setLoading(false);

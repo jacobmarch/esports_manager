@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import axiosInstance from '../axiosInstance';
 
 function OrganizationList() {
     const [organizations, setOrganizations] = useState([]);
@@ -8,7 +9,7 @@ function OrganizationList() {
     const [error, setError] = useState(null);
   
     useEffect(() => {
-      axiosInstance.get('api/organizations')
+      axiosInstance.get('/organizations')
         .then(response => {
           setOrganizations(response.data);
           setLoading(false);

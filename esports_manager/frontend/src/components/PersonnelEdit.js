@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axiosInstance from "../axiosInstance";
 
 function PersonnelEdit() {
     const { id } = useParams();
-    const history = useHistory();
+    const history = useNavigate();
     const [personnel, setPersonnel] = useState({ name: '', position: '' });
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -13,7 +13,7 @@ function PersonnelEdit() {
         if (id) {
             const fetchData = async () => {
                 try {
-                    const response = await axiosInstance.get(`/api/personnels/${id}/`);
+                    const response = await axiosInstance.get(`/personnels/${id}/`);
                     setPersonnel(response.data);
                     setLoading(false);
                 } catch (error) {

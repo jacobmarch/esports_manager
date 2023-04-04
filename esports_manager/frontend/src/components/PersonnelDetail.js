@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import axiosInstance from "../axiosInstance";
 
 function PersonnelDetail() {
     const { id } = useParams();
@@ -10,7 +11,7 @@ function PersonnelDetail() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axiosInstance.get(`api/personnels/${id}`)
+        axiosInstance.get(`/personnels/${id}`)
             .then(response => {
                 setPersonnel(response.data);
                 setLoading(false);
